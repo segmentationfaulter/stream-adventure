@@ -9,6 +9,7 @@
   "author": "Muhammad Saqib <segmentationfaulter@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "split": "^1.0.0"
+    "split": "^1.0.0",
+    "websocket-stream": "^2.1.0"
   }
 }
