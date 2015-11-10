@@ -1,12 +1,13 @@
 'use strict';
+const split = require('split');
 
-let counter = 0;
-process.stdin.on('data', (chunk) => {
+let counter = 1;
+process.stdin.pipe(split()).on('data', (line) => {
   if (counter % 2 === 0) {
-    process.stdout.write(chunk.toString().toUpperCase());
+    console.log(line.toString().toUpperCase());
     counter++;
   } else {
-    process.stdout.write(chunk.toString().toLowerCase());
+    console.log(line.toString().toLowerCase());
     counter++;
   }
 });
