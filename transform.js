@@ -1,4 +1,18 @@
 'use strict';
-process.stdin.on('data', (chunk) => {
-  process.stdout.write(chunk.toString().toUpperCase());
-});
+const util = require('util');
+const Transform = require('stream').Transform;
+
+util.inherits(UpperCaser, Transform);
+function UpperCaser(options) {
+  if(!(this instanceof UpperCaser)) {
+    return new UpperCaser(options);
+  }
+  Transform.call(this, options);
+}
+UpperCaser.prototype._transform = function(chunk, encoding, done) {
+  this.push(chunk.toString().toUpperCase());
+  done();
+}
+
+var toUpperCase = new UpperCaser();
+process.stdin.pipe(toUpperCase).pipe(process.stdout)
