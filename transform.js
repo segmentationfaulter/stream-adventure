@@ -14,5 +14,5 @@ UpperCaser.prototype._transform = function(chunk, encoding, done) {
   done();
 }
 
-var toUpperCase = new UpperCaser();
+const toUpperCase = new UpperCaser();
 process.stdin.pipe(toUpperCase).pipe(process.stdout)
